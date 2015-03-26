@@ -1,7 +1,12 @@
-(setq projectile-completion-system 'grizzl)
+(setq projectile-globally-ignored-directories
+      (append '(".git" "node_modules" "bower_components") projectile-globally-ignored-directories))
+(projectile-global-mode t)
+(require 'prelude-helm-everywhere)
 (setq exec-path (append exec-path '("/usr/local/bin/")))
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
+(global-set-key (kbd "C-S-f") 'helm-projectile-ag)
+(global-set-key [(super shift f)] 'helm-projectile-find-file)
 (setq-default indent-tabs-mode nil)
 (setq ruby-align-chained-calls nil)
 (setq ruby-align-to-stmt-keywords t)
